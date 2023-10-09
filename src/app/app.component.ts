@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Persona } from './persona.model';
+import { LoggingService } from './LoggingService.service';
+import { PersonasService } from './personas.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +10,24 @@ import { Persona } from './persona.model';
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   titulo = 'Listado de personas';
 
-  personasArray: Persona[] = [
-    new Persona("juan", "perez"),
-    new Persona("Laura", "Juarez")
-  ];
+  personasArray: Persona[] = [];
 
-  personaAgregada(persona: Persona){
-    this.personasArray.push( persona )
+  constructor(private loggingService: LoggingService,
+              private personasService: PersonasService){
+
   }
+  ngOnInit(): void {
+    this.personasArray = this.personasService.personasArray;
+  }
+
+  /*personaAgregada(persona: Persona){
+    //this.personasArray.push( persona )
+    //this.loggingService.enviaMensajeAConsola("Agregamos al arreglo la nueva persona: " + persona.nombre);
+
+    this.personasService.agregarPersona(persona)
+
+  }*/
 }
