@@ -12,12 +12,12 @@ export class FormularioComponent {
 
   //@Output() personaCreada = new EventEmitter<Persona>();
 
-  //nombreInput: string = '';
-  //apellidoInput: string = '';
+  nombreInput: string = '';
+  apellidoInput: string = '';
 
 
-  @ViewChild('nombreInput') nombreInput: ElementRef;
-  @ViewChild('apellidoInput') apellidoInput: ElementRef;
+  //@ViewChild('nombreInput') nombreInput: ElementRef;
+  //@ViewChild('apellidoInput') apellidoInput: ElementRef;
 
   constructor(/*private loggingService: LoggingService,*/
               private personasService: PersonasService){
@@ -29,8 +29,11 @@ export class FormularioComponent {
   onAgregarPersona() {
 
     let persona1 = new Persona(
-    this.nombreInput.nativeElement.value,
-    this.apellidoInput.nativeElement.value);
+      this.nombreInput,
+      this.apellidoInput);
+
+      //this.nombreInput.nativeElement.value,
+      //this.apellidoInput.nativeElement.value);
 
     //this.loggingService.enviaMensajeAConsola("Enviamos a persona con nombre: "+ persona1.nombre + " Apellido: " + persona1.apellido);
 
