@@ -10,18 +10,10 @@ import { PersonasService } from './personas.service';
 })
 
 
-export class AppComponent implements OnInit {
+export class AppComponent{
   titulo = 'Listado de personas';
 
-  personasArray: Persona[] = [];
 
-  constructor(private loggingService: LoggingService,
-              private personasService: PersonasService){
-
-  }
-  ngOnInit(): void {
-    this.personasArray = this.personasService.personasArray;
-  }
 
   /*personaAgregada(persona: Persona){
     //this.personasArray.push( persona )

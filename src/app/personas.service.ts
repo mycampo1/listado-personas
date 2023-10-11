@@ -18,4 +18,19 @@ export class PersonasService {
     this.personasArray.push( persona )
     }
 
+    encontrarPersona(index: number){
+      let persona: Persona = this.personasArray[index];
+      return persona;
+    }
+
+  modificarPersona(index:number, persona:Persona){
+    let persona1 = this.personasArray[index]
+    persona1.nombre = persona.nombre;
+    persona1.apellido = persona.apellido;
+  }
+
+  eliminarPersona(index: number){
+    this.personasArray.splice(index,1);
+  }
+
 }
