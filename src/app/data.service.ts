@@ -13,9 +13,11 @@ export class DataService{
       this.httpClient.post('https://listado-personas-d41ad-default-rtdb.firebaseio.com/datos.json', personas);
       .subscribe(
         response => {
-          console.log('Resultado guardar personas: ' + response)
+          console.log('Resultado guardar personas: ' + response);
+          error => console.log('Error al guardar personas: ' + error);
+
         },
-        error => console.log('Error al guardar persona' + error)
+
 
       )
 
