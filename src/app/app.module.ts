@@ -11,6 +11,7 @@ import { LoggingService } from "./LoggingService.service";
 import { PersonasService } from './personas.service';
 import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
+import { DataService } from './data.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { ErrorComponent } from './error/error.component';
   imports: [
     BrowserModule, FormsModule, AppRoutingModule
   ],
-  providers: [LoggingService, PersonasService],
+  providers: [LoggingService, PersonasService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
