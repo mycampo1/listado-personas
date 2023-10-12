@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css'],
 })
+
 export class FormularioComponent implements OnInit {
   //@Output() personaCreada = new EventEmitter<Persona>();
 

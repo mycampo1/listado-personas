@@ -12,7 +12,9 @@ export class DataService{
     ){}
 
   cargarPersonas(){
+    // Obtener el token ID del usuario actual
     const token = this.loginService.getIdToken();
+    // Realizar la solicitud HTTP con el token en el encabezado
     return this.httpClient.get('https://listado-personas-d41ad-default-rtdb.firebaseio.com/datos.json?auth='+token);
   }
 

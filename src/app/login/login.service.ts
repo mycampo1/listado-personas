@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import firebase from 'firebase/app'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 @Injectable()
 
@@ -12,11 +12,13 @@ export class LoginService{
   }
 
   login(email:string, password: string){
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    // Iniciar sesión con Firebase
+    signInWithEmailAndPassword(getAuth(), email, password)
     // devuelve una promersa
     .then(
       response => {
-        firebase.auth().currentUser?.getIdToken().then(
+        // Obtener el token ID del usuario actual
+        response.user.getIdToken().then(
           token => {
             console.log(token);
             this.token = token;
