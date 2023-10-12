@@ -12,6 +12,7 @@ import { PersonasService } from './personas.service';
 import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
 import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { DataService } from './data.service';
     ErrorComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule
+    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule
   ],
   providers: [LoggingService, PersonasService,DataService],
   bootstrap: [AppComponent]
