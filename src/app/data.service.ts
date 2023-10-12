@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Persona } from './persona.model';
+import { LoginService } from './login/login.service';
 
 @Injectable()
 
 export class DataService{
 
-  constructor(private httpClient: HttpClient){}
+  constructor(private httpClient: HttpClient,
+              private loginService: LoginService
+    ){}
 
   cargarPersonas(){
-    return this.httpClient.get('https://listado-personas-d41ad-default-rtdb.firebaseio.com/datos.json');
+    const token = this.loginService.getIdToken();
+    return this.httpClient.get('https://listado-personas-d41ad-default-rtdb.firebaseio.com/datos.json?auth='+token);
   }
 
   //guardar personas
@@ -40,5 +44,6 @@ export class DataService{
       error => console.log("Error al eliminar Persona"+ error)
     )
   }
+
 
 }

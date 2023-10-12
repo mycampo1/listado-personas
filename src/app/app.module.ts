@@ -13,6 +13,8 @@ import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 
 @NgModule({
@@ -21,12 +23,13 @@ import { HttpClientModule } from '@angular/common/http';
     PersonaComponent,
     FormularioComponent,
     PersonasComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule
   ],
-  providers: [LoggingService, PersonasService,DataService],
+  providers: [LoggingService, PersonasService,DataService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
