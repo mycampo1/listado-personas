@@ -33,4 +33,19 @@ export class LoginService{
     return this.token;
   }
 
+  isAutenticado(){
+    return this.token != null;
+  }
+
+  logout() {
+    // Cerrar sesión con Firebase
+    getAuth().signOut();
+
+    // Eliminar el token ID del usuario actual
+    this.token = null;
+
+    // Redirigir al usuario a la página de login
+    this.router.navigate(['/login']);
+  }
+
 }
